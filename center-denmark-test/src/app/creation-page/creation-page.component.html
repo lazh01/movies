@@ -1,1 +1,9 @@
-<p>creation-page works!</p>
+<h1>Creation Page</h1>
+<form>
+  <label>Title: <input type="text" [(ngModel)]="newMovie.title" name="title"></label><br>
+  <label>Director: <input type="text" [(ngModel)]="newMovie.director" name="director"></label><br>
+  <label>Year: <input type="number" [(ngModel)]="newMovie.year" name="year"></label><br>
+  <label>Rating: <input type="number" [(ngModel)]="newMovie.rating" name="rating"></label><br>
+  <button (click)="createMovie()">Create Movie</button>
+</form>
+<button (click)="goToOverviewPage()">Go to Overview Page</button>
