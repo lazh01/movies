@@ -1,9 +1,40 @@
-<h1>Creation Page</h1>
-<form>
-  <label>Title: <input type="text" [(ngModel)]="newMovie.title" name="title"></label><br>
-  <label>Director: <input type="text" [(ngModel)]="newMovie.director" name="director"></label><br>
-  <label>Year: <input type="number" [(ngModel)]="newMovie.year" name="year"></label><br>
-  <label>Rating: <input type="number" [(ngModel)]="newMovie.rating" name="rating"></label><br>
-  <button (click)="createMovie()">Create Movie</button>
-</form>
-<button (click)="goToOverviewPage()">Go to Overview Page</button>
+<div class="container">
+    <div class="row">
+        <div class="col-3"></div>
+        <div class="col-6">
+            <h1>Movie creation!</h1>
+            <p>This is the page where you create a new movieEntry to add to the list in the overview</p>
+            <form class="movie-form">
+                <table [cellSpacing]="0"><tr>
+                        <td>
+                            <mat-form-field>
+                                <mat-label>Title</mat-label>
+                                <input type="text" matInput required [(ngModel)]="newMovie.title" name="title">
+                            </mat-form-field>
+                        </td>   
+                        <td>
+                            <mat-form-field>
+                                <mat-label>Year</mat-label>
+                                <input type="number" matInput required [(ngModel)]="newMovie.year" name="year">
+                            </mat-form-field>
+                        </td>
+                </tr></table>
+        
+                <p>
+                    <mat-form-field>
+                        <mat-label>Director</mat-label>
+                        <input type="text" matInput required [(ngModel)]="newMovie.director" name="director">
+                    </mat-form-field>
+                </p>
+                <p>
+                    <mat-form-field>
+                        <mat-label>Rating</mat-label>
+                        <input type="text" matInput required placeholder="ex. 5/10" [(ngModel)]="newMovie.rating" name="rating">
+                    </mat-form-field>
+                </p>
+            </form>
+            <button mat-button (click)="createMovie()" color="primary">Create Movie & add to overview</button>
+        </div>
+        <div class="col-3"></div>
+    </div>
+</div>

@@ -1,29 +1,26 @@
-<mat-toolbar color="primary">
-    <div class="row">
-        <div class="col-sm-4">
-            <mat-icon>home</mat-icon>
-        </div>
-        <div class="col-sm-8">
-            <span>Movie library</span>
-        </div>
-    </div>
-</mat-toolbar>
+<div class="d-flex flex-column align-items-center">
+    <h1>Movie Library</h1>
+    <p>This is a list of 3 movies i enjoyed displayed using bootstrap and angular materials</p>
+    <p>Each movie can be clicked to open a new page with more details about the movie</p>
+    <p>At the bottom is a button to add a new movie to the list</p>
+</div>
 
 <div class="container">
-    <div class="row">
-        <div class="col">
-            <ul>    
-                <li *ngFor="let movie of movies" (click)="goToDetailPage(movie.id)">
-                  {{ movie.title }}
-                </li>
-              </ul>
+    <div *ngFor="let movie of movies" class="movie-item">
+        <div class="movie-card" (click)="goToDetailPage(movie.id)">
+            <mat-card>
+                <mat-card-header>
+                    <mat-card-subtitle>{{movie.director}}</mat-card-subtitle>
+                    <mat-card-title>{{movie.title}}</mat-card-title>
+                </mat-card-header>
+                <mat-card-content>
+                    <div>{{movie.year}}</div>
+                    <div>Personal rating: {{ movie.rating }}</div>
+                </mat-card-content>
+            </mat-card> 
         </div>
     </div>
-    <div class="row">
-        <div class="col">
-            <button (click)="goToCreatePage()" mat-button color="primary">Add Movie</button>
-        </div>
-    </div>
+    <button mat-button (click)="goToCreatePage()" color="primary">Add Movie</button>
 </div>
 
 

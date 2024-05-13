@@ -11,14 +11,24 @@ import { FormsModule } from '@angular/forms';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
+import { MatListModule } from '@angular/material/list';
+import { MatCardModule } from '@angular/material/card';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatInputModule } from '@angular/material/input';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { MovieToolbarComponent } from './movie-toolbar/movie-toolbar.component';
+import { MatMenuModule } from '@angular/material/menu';
+import { MovieFooterComponent } from './movie-footer/movie-footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     OverviewPageComponent,
     DetailPageComponent,
-    CreationPageComponent
+    CreationPageComponent,
+    MovieToolbarComponent,
+    MovieFooterComponent
   ],
   imports: [
     BrowserModule,
@@ -26,8 +36,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AppRoutingModule,
     MatToolbarModule,
     MatIconModule,
+    MatListModule,
     MatButtonModule,
-    BrowserAnimationsModule
+    MatCardModule,
+    MatDividerModule,
+    MatInputModule,
+    BrowserAnimationsModule,
+    MatMenuModule,
+    NgbModule
   ],
   providers: [MovieService],
   bootstrap: [AppComponent]

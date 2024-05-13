@@ -1,0 +1,15 @@
+.movie-card:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+.movie-card:hover:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+.movie-card {
+    margin-bottom: 20px; /* Adjust the value to add desired space between cards */
+}
+
+.toolbar{
+    margin-bottom: 20px;
+}

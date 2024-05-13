@@ -1,11 +1,19 @@
-<h1>Detail Page</h1>
+<div class="d-flex flex-column align-items-center">
+  <h1>Movie details</h1>
+  <p>This page contains more details about the selected movie</p>
+  <p>On this page you will also find a graph depicting the "alleged" popularity of this movie over the years</p>
+  <p>The accuracy of the data in the graph is not guarenteed to be true</p>
+</div>
+
 <div *ngIf="errorMessage">
   <p>{{ errorMessage }}</p>
 </div>
 <div *ngIf="!errorMessage && movie">
-  <p>Title: {{ movie.title }}</p>
-  <p>Director: {{ movie.director }}</p>
-  <p>Year: {{ movie.year }}</p>
-  <p>Rating: {{movie.rating}}</p>
+  <div class="container">
+  </div>
+    <p>Title: {{ movie.title }}</p>
+    <p>Director: {{ movie.director }}</p>
+    <p>Year: {{ movie.year }}</p>
+    <p>Rating: {{movie.rating}}</p>
 </div>
 <button (click)="goBack()">Go Back</button>
