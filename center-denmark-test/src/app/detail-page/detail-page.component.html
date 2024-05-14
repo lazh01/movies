@@ -1,19 +1,71 @@
 <div class="d-flex flex-column align-items-center">
   <h1>Movie details</h1>
   <p>This page contains more details about the selected movie</p>
-  <p>On this page you will also find a graph depicting the "alleged" popularity of this movie over the years</p>
-  <p>The accuracy of the data in the graph is not guarenteed to be true</p>
+  <p>On this page you will also find a graph depicting the "alleged" popularity of this movie in 2023</p>
+  <p>The accuracy of the data in the graph is not guaranteed to be true</p>
 </div>
 
-<div *ngIf="errorMessage">
-  <p>{{ errorMessage }}</p>
-</div>
-<div *ngIf="!errorMessage && movie">
-  <div class="container">
+<div *ngIf="!errorMessage && movie else noMovieFound">
+  <div class="container-fluid">
+  <div class="row">
+    <div class="col-4">
+        <img src="https://i.imgur.com/0x3gpHJ.png" alt="MoviePoster Placeholder">
+    </div>
+    <div class="col-8">
+      <div>
+        <app-movie-graph></app-movie-graph>
+      </div>
+    </div>
   </div>
-    <p>Title: {{ movie.title }}</p>
-    <p>Director: {{ movie.director }}</p>
-    <p>Year: {{ movie.year }}</p>
-    <p>Rating: {{movie.rating}}</p>
+  <div class="row">
+    <div class="col-4">
+      <div class="row">
+        <div class="col-4">
+          <h3>Title:</h3>
+        </div>
+        <div class="col-8">
+          <h4>{{movie.title}}</h4>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-4">
+          <h3>Director:</h3>
+        </div>
+        <div class="col-8">
+          <h4>{{movie.director}}</h4>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-4">
+          <h3>Year:</h3>
+        </div>
+        <div class="col-8">
+          <h4>{{movie.year}}</h4>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-4">
+          <h3>Rating:</h3>
+        </div>
+        <div class="col-8">
+          <h4>{{movie.rating}}</h4>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="d-flex flex-column align-items-center">
+        <h2>Movie synopsis</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus et arcu at sem aliquet feugiat a nec magna. Nullam sed risus sed dui suscipit tincidunt non in odio. Sed auctor egestas tristique. Maecenas nec porta turpis, at sagittis ligula. In malesuada tempor faucibus. Nam venenatis nunc ac molestie aliquet. Nam viverra ex sed consectetur aliquam. Phasellus eros nisl, efficitur semper enim nec, mattis fringilla felis. Vestibulum a ultricies lorem. Duis ultricies risus nibh, ultrices volutpat nulla placerat id. Curabitur et vulputate nisi, in tristique eros. Etiam nec libero at massa molestie congue. Nullam ultrices et libero at rhoncus.</p>
+      </div>
+    </div>
 </div>
-<button (click)="goBack()">Go Back</button>
+  </div>
+</div>
+
+<ng-template #noMovieFound>
+  <div class="noMovie">
+    <div class="d-flex justify-content-center">
+      <h2>{{ errorMessage }}</h2>
+    </div>
+  </div>
+</ng-template>

@@ -20,6 +20,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MovieToolbarComponent } from './movie-toolbar/movie-toolbar.component';
 import { MatMenuModule } from '@angular/material/menu';
 import { MovieFooterComponent } from './movie-footer/movie-footer.component';
+import { MovieGraphComponent } from './movie-graph/movie-graph.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { MovieFooterComponent } from './movie-footer/movie-footer.component';
     DetailPageComponent,
     CreationPageComponent,
     MovieToolbarComponent,
-    MovieFooterComponent
+    MovieFooterComponent,
+    MovieGraphComponent
   ],
   imports: [
     BrowserModule,
