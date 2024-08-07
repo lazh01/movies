@@ -10,12 +10,12 @@ import { MovieService } from 'src/shared/movie.service';
 })
 export class OverviewPageComponent implements OnInit {
 
-  movies: Movie[] = [];
+  movies: Movie[][] = [[]];
 
   constructor(private router: Router, private movieService: MovieService) { }
 
   ngOnInit(): void {
-    this.movieService.getMovs().then(res => {this.movies = res});
+    this.movies = this.movieService.getMovies();
   }
 
   goToDetailPage(movieId: number): void {

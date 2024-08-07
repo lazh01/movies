@@ -11,19 +11,22 @@ export class MovieService {
   constructor() { }
 
   async getMovs(): Promise<Movie[]> {
-          const response = await fetch("localhost:8081/movie/all", {method: 'GET'});
+          const response = await fetch("/movie/all", {method: 'GET'});
+          console.log(response)
           const data = await response.json();
-          const movies = JSON.parse(data);
-          return movies
+          console.log(data)
+          /*const movies = JSON.parse(data);
+          console.log(movies)*/
+          return data
     }
 
-  getMovies(): Movie[] {
-    var m = this.movies;
-    const movies = this.getMovs();
-    movies.then(
-      (response) => {
-      m = response;
-      })
+  getMovies(): Movie[][] {
+    var m: Movie[][] = [[this.movies[0]]];
+    this.getMovs().then( (result) =>
+      {
+        m = [result]
+        }
+      )
     return m;
   }
 

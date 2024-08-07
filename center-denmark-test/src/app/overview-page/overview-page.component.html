@@ -6,7 +6,7 @@
 </div>
 
 <div class="container">
-    <div *ngFor="let movie of movies" class="movie-item">
+    <div *ngFor="let movie of movies[0]" class="movie-item">
         <div class="movie-card" (click)="goToDetailPage(movie.id)">
             <mat-card>
                 <mat-card-header>
@@ -17,7 +17,7 @@
                     <div>{{movie.year}}</div>
                     <div>Personal rating: {{ movie.rating }}</div>
                 </mat-card-content>
-            </mat-card> 
+            </mat-card>
         </div>
     </div>
     <button mat-button (click)="goToCreatePage()" color="primary">Add Movie</button>
