@@ -10,8 +10,21 @@ export class MovieService {
 
   constructor() { }
 
+  async getMovs(): Promise<Movie[]> {
+          const response = await fetch("localhost:8081/movie/all", {method: 'GET'});
+          const data = await response.json();
+          const movies = JSON.parse(data);
+          return movies
+    }
+
   getMovies(): Movie[] {
-    return this.movies
+    var m = this.movies;
+    const movies = this.getMovs();
+    movies.then(
+      (response) => {
+      m = response;
+      })
+    return m;
   }
 
   getMovieById(id: number): Movie | undefined {
