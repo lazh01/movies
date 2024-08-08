@@ -1,7 +1,7 @@
 CREATE TABLE IF NOT EXISTS movie
 (
     "ID"  BIGINT Primary key,
-    "NAME" VARCHAR,
+    "TITLE" VARCHAR,
     "RATING"  VARCHAR,
     "YEAR"    BIGINT,
     "DIRECTOR"  VARCHAR

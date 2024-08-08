@@ -10,7 +10,7 @@ import { MovieService } from 'src/shared/movie.service';
 })
 export class OverviewPageComponent implements OnInit {
 
-  movies: Movie[][] = [[]];
+  movies: Movie[] = [];
 
   constructor(private router: Router, private movieService: MovieService) { }
 

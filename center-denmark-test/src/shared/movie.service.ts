@@ -12,31 +12,40 @@ export class MovieService {
 
   async getMovs(): Promise<Movie[]> {
           const response = await fetch("/movie/all", {method: 'GET'});
-          console.log(response)
           const data = await response.json();
-          console.log(data)
-          /*const movies = JSON.parse(data);
-          console.log(movies)*/
           return data
     }
 
-  getMovies(): Movie[][] {
-    var m: Movie[][] = [[this.movies[0]]];
+  getMovies(): Movie[] {
+    var m: Movie[] = [];
     this.getMovs().then( (result) =>
       {
-        m = [result]
+        for (let i = 0; i < result.length; i++) {
+        m.push(result[i])
         }
+      }
       )
     return m;
   }
 
-  getMovieById(id: number): Movie | undefined {
-    return this.movies.find(movie => movie.id === id);
+  async getMovieById(id: number): Promise<Movie> {
+    const response = await fetch("/movie/" + id , {method: 'GET'});
+    const data = await response.json();
+    return data
   }
 
-  createMovie(movie: Movie): void {
+  async createMovie(movie: Movie): Promise<void> {
     movie.id = this.generateRandomId();
     this.movies.push(movie);
+    const response = await fetch("/movie/create",
+    {
+      method: 'POST',
+      headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+          },
+       body: JSON.stringify(movie)
+      });
   }
 
   private generateRandomId(): number {

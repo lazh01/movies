@@ -6,7 +6,7 @@
 </div>
 
 <div class="container">
-    <div *ngFor="let movie of movies[0]" class="movie-item">
+    <div *ngFor="let movie of movies" class="movie-item">
         <div class="movie-card" (click)="goToDetailPage(movie.id)">
             <mat-card>
                 <mat-card-header>
