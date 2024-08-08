@@ -1,6 +1,6 @@
 {
   "/movie": {
-    "target": "http://localhost:8081",
+    "target": "http://springbackend:8081",
     "secure": false
   }
 }

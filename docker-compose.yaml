@@ -1,0 +1,37 @@
+services:
+  postgres:
+    image: postgres:14-alpine
+    ports:
+      - 5556:5432
+    environment:
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=testdb
+    networks:
+      - backend
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+  springbackend:
+    build: /backend
+    ports:
+      - 8081:8081
+    networks:
+      - backend
+      - angular-spring
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/testdb
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: password
+  angular:
+    build: '/center-denmark-test'
+    networks:
+      - angular-spring
+    ports:
+      - 4200:4200
+networks:
+  backend:
+    name: javadb
+  angular-spring:
+    driver: bridge
+volumes:
+  pgdata:
