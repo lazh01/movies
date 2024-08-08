@@ -13,16 +13,16 @@ public class Movie {
         @Id
         @GeneratedValue(strategy = GenerationType.AUTO)
         private Long id;
-        private String name;
+        private String title;
         private String director;
         private Long year;
         private String rating;
 
 
-        public Movie(Long id, String name, String director, Long year, String rating) {
+        public Movie(Long id, String title, String director, Long year, String rating) {
                 this.id = id;
                 this.director = director;
-                this.name = name;
+                this.title = title;
                 this.year = year;
                 this.rating = rating;
         }
@@ -55,12 +55,12 @@ public class Movie {
                 this.director = director;
         }
 
-        public String getName() {
-                return name;
+        public String getTitle() {
+                return title;
         }
 
-        public void setName(String name) {
-                this.name = name;
+        public void setTitle(String title) {
+                this.title = title;
         }
 
         public String getRating() {
@@ -75,7 +75,7 @@ public class Movie {
         public String toString() {
                 String json = "{\n";
                 json = json + " id: " + id + ",\n";
-                json = json + " name: " + name + ",\n";
+                json = json + " name: " + title + ",\n";
                 json = json + " director: " + director + ",\n";
                 json = json + " year: " + year + ",\n";
                 json = json + " rating: " + rating + "\n";
